@@ -35,6 +35,9 @@ density = gaussian_kde(jmw_data['year'])
 xs = np.linspace(1700,1900, 100)
 plt.plot(xs, density(xs))
 
+data['medium'].value_counts()
+len(data['medium'].unique())
+data['medium'].value_counts()[[0,1,2,3,4,5,6,7,8,9]].sort_values().plot(kind = 'barh')
 
 
 
