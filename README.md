@@ -24,8 +24,8 @@ To see if there might be some sort of trend with a piece of art's dimensions, a 
 As previously suspected, there appears to be some pattern between the artworks' dimensions and their creation dates. Taking a look at the left plot below, there appears to be a slight upwards trend from the 1850s to the 2000s. This trend becomes a lot clearer when looking at the right plot which shows a more englarged image of the left plot. 
 
 <p float="left">
-<img src="imgs/aspect ratio vs time.png"  width = 425/>
-<img src="imgs/aspect ratio vs time closer.png"  width = 425/>
+<img src="imgs/aspect ratio vs time.png"  width = 410/>
+<img src="imgs/aspect ratio vs time closer.png"  width = 410/>
 </p>
 
 Aside from the artworks' dimensions, I thought it might be interested to take a look at who the 5 most popular artists were in this collection. Interestingly, the most popular artist went by the name Joseph Mallord William Turner. As shown below, it would appear that more than 50% of all the artwork in the collection belongs to this artist.
