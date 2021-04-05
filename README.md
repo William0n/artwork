@@ -60,7 +60,7 @@ The data set used for this project contained information for over 69,000 differe
 
 ## Modeling 
 
-In order to predict the artwork's creation year, I have decided to use a random forest regression model from the sklearn package. The features which were used in this random forest are the artworks' `width`, `length` and the `material` used to make these pieces. Following this, the random forest consists of 600 trees, a max depth of 600, and max leaf nodes 16. 
+In order to predict the artwork's creation year, I have decided to use a random forest regression model from the sklearn package. The features which were used in this random forest are the artworks' `width`, `height` and the `material` used to make these pieces. Following this, the random forest consists of 600 trees, a max depth of 600, and max leaf nodes 16. 
 
 ```model_rf = RandomForestRegressor(n_estimators = 600, max_leaf_nodes = 16, max_depth = 20, n_jobs = -1)```
 
