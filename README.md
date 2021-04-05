@@ -2,8 +2,7 @@
 
 ## Introduction 
 
-Using a data set from the Tate Art Museum, my goal for this project is to analyze the data and see how well a random forest algorithm performs at predicting the artwork's creation 
-year. 
+Using a data set from the Tate Art Museum, my goal for this project is to analyze the data and see how well a random forest algorithm performs at predicting the artwork's creation year. 
 
 ## Packages and Resources Used 
 Main Packages:
@@ -43,6 +42,7 @@ The data set used for this project contained information for over 69,000 differe
   - All columns removed except for the `year`, `width`, and `height` column 
   - Created a new column based on the `medium` column called `materials`. Each number (0-10) in the column represents the top 10 materials where the value 10 represents any material not in the top 10
     - Below is a table showing the materials and their respective numbers
+   - Data split into training and testing sets with a 75% and 25% split respectively
 
 | Number | Material | 
 |-------|---------------|
@@ -60,12 +60,18 @@ The data set used for this project contained information for over 69,000 differe
 
 ## Modeling 
 
+In order to predict the artwork's creation year, I have decided to use a random forest regression model from the sklearn package. The features which were used in this random forest are the artworks' `width`, `length` and the `material` used to make these pieces. Following this, the random forest consists of 600 trees, a max depth of 600, and max leaf nodes 16. 
+
+```model_rf = RandomForestRegressor(n_estimators = 600, max_leaf_nodes = 16, max_depth = 20, n_jobs = -1)```
+
 ## Model Results 
 
 Random Forest Model:
-|                | Training      | Test         | 
-| -------------  | ------------- | -------------|
-| MAE            |               |         | 
-| MSE            |               |         | 
+|                | Test          |
+| -------------  | ------------- | 
+| MAE            | 26.55         |  
+| MSE            | 1928.34       | 
+
+To evaluate the performance of this model, the Mean Absolute Error (MAE) and Mean Squared Error (MSE) were used. As shown above, the performance of the random forest model was not the best. It would appear that on average, the model's predictions on the test set were off by about 26 years when compared to the true values. 
 
 
