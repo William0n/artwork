@@ -76,13 +76,15 @@ To evaluate the performance of this model, the Mean Absolute Error (MAE) and Mea
 
 ### Feature Importance
 
-Taking a quick look at the table below, something rather interesting can be seen. Prior to this, I had assumed that perhaps the most important features were the artworks' width and height. However, the table below seems to suggest that height is the least important feature to this model.
+Taking a quick look at the table below, something rather interesting can be seen. Prior to this, I had assumed that perhaps the most important features were the artworks' width and height. However, the table below seems to suggest that height is the least important feature to this model. 
 
 |Feature               | Score         |
 | -------------  | ------------- | 
-| Width            | 0.78         |  
+| Width            | 0.787         |  
 | Height            | 0.035       | 
 | Material            | 0.177       | 
+
+Note: Total scores of all features should be close to 1
 
 
 
