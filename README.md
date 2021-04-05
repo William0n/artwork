@@ -39,6 +39,25 @@ Similarly, a plot was made to see the top 10 most commonly used materials in the
 
 ## Data Cleaning and Preprocessing 
 
+The data set used for this project contained information for over 69,000 different pieces of artwork. Unfortunately, there were a few rows which had missing values, and thus, they were removed. Along with the removal of rows with missing values, the following was also applied to the data set:
+  - All columns removed except for the `year`, `width`, and `height` column 
+  - Created a new column based on the `medium` column called `materials`. Each number (0-10) in the column represents the top 10 materials where the value 10 represents any material not in the top 10
+    - Below is a table showing the materials and their respective numbers
+
+| Number | Material | 
+|-------|---------------|
+|0 | Graphite on paper|
+|1| Oil Paint on canvas|
+|2| Screenprint on paper|
+|3 |Lithograph on paper |
+|4 | Watercolour on paper|
+|5 | Etching on paper|
+|6 | Graphite & watercolour |
+|7 | Ink on paper|
+|8 | Intaglio print|
+|9 | Photograph, gelatin silver print|
+|10 | Other |    
+
 ## Modeling 
 
 ## Model Results 
