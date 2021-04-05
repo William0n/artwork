@@ -86,5 +86,17 @@ Taking a quick look at the table below, something rather interesting can be seen
 
 Note: Total scores of all features should be close to 1
 
+## Improving The Model
+
+To improve upon the previous model, the `RandomizedSearchCV` function from sklearn will be used to create a better model. The model will include some more hyperparameters which will then be tuned using a gridsearch and a 5 fold cross validation. The new model will include the following hyperparameters: `n_estimators`, `max_features`, `max_depth`, `min_sample_split`, `min_samples_leaf`, `bootstrap`. Below shows all the values that will be tested for each hyperparameter: 
+
+```n_estimators = [int(x) for x in np.linspace(start = 200, stop = 2000, num = 10)]
+max_features = ['auto', 'sqrt']
+max_depth = [int(x) for x in np.linspace(10, 110, num = 11)]
+max_depth.append(None)
+min_samples_split = [2, 4, 8]
+min_samples_leaf = [1, 2, 4]
+bootstrap = [True, False]```
+
 
 
