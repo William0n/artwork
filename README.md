@@ -72,6 +72,17 @@ Random Forest Model:
 | MAE            | 26.55         |  
 | MSE            | 1928.34       | 
 
-To evaluate the performance of this model, the Mean Absolute Error (MAE) and Mean Squared Error (MSE) were used. As shown above, the performance of the random forest model was not the best. It would appear that on average, the model's predictions on the test set were off by about 26 years when compared to the true values. 
+To evaluate the performance of this model, the Mean Absolute Error (MAE) and Mean Squared Error (MSE) were used. As shown above, the performance of the random forest model was not the best. It would appear that on average, the model's predictions on the test set were off by about 26 years when compared to the true values.  
+
+### Feature Importance
+
+Taking a quick look at the table below, something rather interesting can be seen. Prior to this, I had assumed that perhaps the most important features were the artworks' width and height. However, the table below seems to suggest that height is the least important feature to this model.
+
+|Feature               | Score         |
+| -------------  | ------------- | 
+| Width            | 0.78         |  
+| Height            | 0.035       | 
+| Material            | 0.177       | 
+
 
 
