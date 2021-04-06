@@ -14,6 +14,10 @@ data = pd.read_csv('art data.csv',encoding='cp1252')
 data.describe()
 
 plt.scatter(data['width'],data['height'] )
+plt.xlabel('Width (mm)')
+plt.ylabel('Height (mm)')
+plt.show()
+
 len(data['artist'].unique())
 
 ### seeing which artist has the most artwork 
@@ -23,6 +27,8 @@ data['artist'].value_counts()[[0,1,2,3,4]].sort_values().plot(kind = 'barh')
 jmw_data = data[data['artist'].str.contains('Turner, Joseph Mallord William')]
 
 plt.hist(jmw_data['year'], bins = 20)
+plt.xlabel('Year Created')
+plt.show()
 
 ### Creating KDE  plot 
 from scipy.stats import gaussian_kde
@@ -32,22 +38,29 @@ jmw_data = jmw_data['year'].dropna()
 jmw_data = pd.DataFrame(jmw_data)
 density = gaussian_kde(jmw_data['year'])
 xs = np.linspace(1700,1900, 100)
+
 plt.plot(xs, density(xs))
+plt.xlabel('Year Created')
+plt.show()
 
 data['medium'].value_counts()
 len(data['medium'].unique())
 data['medium'].value_counts()[[0,1,2,3,4,5,6,7,8,9]].sort_values().plot(kind = 'barh')
-
+ 
 aspect = data['width']/ data['height']
 
 
 
 plt.scatter(data['year'], aspect)
+plt.xlabel('Year Created')
+plt.ylabel('Aspect Ratio')
 plt.ylim(0, 120)
 plt.show()
 
 ### closer look at the scatter plot 
 plt.scatter(data['year'], aspect)
+plt.xlabel('Year Created')
+plt.ylabel('Aspect Ratio')
 plt.ylim(0, 20)
 plt.show()
 
@@ -104,11 +117,15 @@ from sklearn.metrics import mean_absolute_error
 from sklearn.metrics import mean_squared_error
 
 
-model_rf = RandomForestRegressor(n_estimators = 1000, max_leaf_nodes = 18, n_jobs = -1)
+model_rf = RandomForestRegressor(n_estimators = 600, max_leaf_nodes = 16, max_depth = 20, n_jobs = -1)
 model_rf.fit(x_train, y_train)
 
 y_pred = model_rf.predict(x_test)
+
+
+
 mean_absolute_error(y_test, y_pred)
+mean_squared_error(y_test, y_pred)
 
 for name, score in zip(list(dim_data)[1:], model_rf.feature_importances_):
     print(name,score)
