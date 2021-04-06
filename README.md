@@ -109,7 +109,7 @@ The best model obtained from this random search used the following values for th
  'bootstrap': False}
  ```
 ### Results
-Unlike the previous model, the added step of using a randomized search with cross validation to find the best values increased the training time significantly. Initially, the training time for the original model was ~1 minute, however, with the new model, it took ~8 minutes. This increase in training time is unsuprising as the model is trying multiple combinations to find the best values, but this should still be mentioned to outline some of the cons of using this method. Though it did take a relatively long time to train, the "improved" model was able to achieve a much lower MAE on the test set than the previous model. Thus, for this particular project, the time to performance trade-off was worth while.
+Unlike the previous model, the added step of using a randomized search with cross validation to find the best values increased the training time significantly. Initially, the training time for the original model was ~1 minute, however, with the new model, it took ~8 minutes. This increase in training time is unsurprising as the model is trying multiple combinations to find the best values, but this should still be mentioned to outline some of the cons of using this method. Though it did take a relatively long time to train, the "improved" model was able to achieve a much lower MAE on the test set than the previous model. Thus, for this particular project, the time to performance trade-off was worth while.
 
 |                | Test (Original Model) | Test (Improved Model)
 | -------------  | ------------- |----------------------------|
