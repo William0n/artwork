@@ -88,15 +88,41 @@ Note: Total scores of all features should be close to 1
 
 ## Improving The Model
 
-To improve upon the previous model, the `RandomizedSearchCV` function from sklearn will be used to create a better model. The model will include some more hyperparameters which will then be tuned using a gridsearch and a 5 fold cross validation. The new model will include the following hyperparameters: `n_estimators`, `max_features`, `max_depth`, `min_sample_split`, `min_samples_leaf`, `bootstrap`. Below shows all the values that will be tested for each hyperparameter: 
+To improve upon the previous model, the `RandomizedSearchCV` function from sklearn will be used to create a better model. The model will include some more hyperparameters which will then be tuned using a gridsearch and a 5-fold cross validation. The new model will include the following hyperparameters: `n_estimators`, `max_features`, `max_depth`, `min_sample_split`, `min_samples_leaf`, `bootstrap`. Below shows all the values that will be tested for each hyperparameter: 
 
-```n_estimators = [int(x) for x in np.linspace(start = 200, stop = 2000, num = 10)]
+```
+n_estimators = [int(x) for x in np.linspace(start = 200, stop = 2000, num = 10)]
 max_features = ['auto', 'sqrt']
 max_depth = [int(x) for x in np.linspace(10, 110, num = 11)]
 max_depth.append(None)
 min_samples_split = [2, 4, 8]
 min_samples_leaf = [1, 2, 4]
-bootstrap = [True, False]```
+bootstrap = [True, False]
+```
+The best model obtained from this random search used the following values for the hyperparameters:
+```
+{n_estimators': 1000,
+ 'min_samples_split': 8,
+ 'min_samples_leaf': 4,
+ 'max_features': 'sqrt',
+ 'max_depth': 60,
+ 'bootstrap': False}
+ ```
+### Results
+Unlike the previous model, the added step of using a randomized search with cross validation to find the best values increased the training time significantly. Initially, the training time for the original model was ~1 minute, however, with the new model, it took ~8 minutes. This increase in training time is unsuprising as the model is trying multiple combinations to find the best values, but this should still be mentioned to outline some of the cons of using this method. Though it did take a relatively long time to train, the "improved" model was able to achieve a much lower MAE on the test set than the previous model. Thus, for this particular project, the time to performance trade-off was worth while.
 
+|                | Test (Original Model) | Test (Improved Model)
+| -------------  | ------------- |----------------------------|
+| MAE            | 26.55         |  14.03                     |
+| MSE            | 1928.34       |  1013.29                   |
+
+### Feature Importance 
+Similar to the feature importances in the original model, the artworks' width is still the most important feature. Although the width variable is still the most important feature, it would appear that the overall balance has changed. With the width being less important in the new model, the 2 other features have significantly increased in their importance to the model. In addition to the new model achieving better results on the test set, the model also seems to make better use of all the features.
+
+|Feature               | Score (Original Model)         | Score (Improved Model)
+| -------------  | ------------- | --------------------------------------| 
+| Width            | 0.787         |  0.411               |
+| Height            | 0.035       | 0.317                 |
+| Material            | 0.177       | 0.271               |
 
 
